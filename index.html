@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jamonita!</title>
+    <link rel="icon" href="./yellow.png" type="image/x-icon">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-image: url('https://img.freepik.com/vector-gratis/frontera-girasol-acuarela_23-2149259685.jpg?w=2000');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            margin-top: 120px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .card {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            display: none;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .card.active {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        #flower {
+            text-align: center;
+        }
+        .flower {
+            width: 50%;
+            border-radius: 10px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        #siguiente {
+            background-color: #ffcc00;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        #siguiente:hover {
+            background-color: #ffa500;
+        }
+        #videoFondo {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <audio src="./yellowflowers.mp3" autoplay loop>
+        Tu navegador no admite la reproducción de audio.
+    </audio>
+
+    <div class="container">
+        <div class="card active">
+            <p>Ella sabia que él sabia</p>
+        </div>
+        <div class="card">
+            <p>Que algún día pasaría</p>
+        </div>
+        <div class="card">
+            <p>Que vendría a buscarla</p>
+        </div>
+        <div class="card">
+            <p>Con sus flores amarillas</p>
+        </div>
+        <div class="card">
+            <img class="flower" src="https://flowerbox.pe/wp-content/uploads/2023/03/descarga.jpg" alt="Flor Amarilla">
+            <p>Feliz dia Jamonita! ♥</p>
+        </div>
+        <button id="siguiente">Siguiente</button>
+    </div>
+
+    <script>
+        const cards = document.querySelectorAll('.card');
+        const siguienteButton = document.getElementById('siguiente');
+        let currentCardIndex = 0;
+
+        siguienteButton.addEventListener('click', () => {
+            cards[currentCardIndex].classList.remove('active');
+            currentCardIndex = (currentCardIndex + 1) % cards.length;
+            cards[currentCardIndex].classList.add('active');
+        });
+    </script>
+</body>
+</html>
